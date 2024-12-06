@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>NBA</title>
 </head>
 <body>
-    
+    <h1>NBA</h1>
+
+    <div class="container">
+        <h2>Teams</h2>  
+        <div class="radio-buttons">
+            <label>
+                <input type="radio" name="conference" value="East" checked>East
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="conference" value="West">West
+            </label>
+        </div>
+        <button id="show-team">Show team</button>
+        <div id="team-container"></div> 
+    </div>
+
 
     <script src="scripts.js"></script>
 </body>
