@@ -8,14 +8,14 @@ h1, h2 {
     text-align: center;
 }
 
-#team-container{
+#team-container, #players-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 40px;
 }
 
-.team-card{
+.team-card, .player-card {
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
@@ -32,6 +32,6 @@ h1, h2 {
     padding: 10px;
 }
 
-#show-team{
+#show-team, #show-players {
     margin-top: 10px;
 }

@@ -29,7 +29,7 @@ async function fetchData(url, options, displayFunction) {
         console.error('Fetch error:', error);
     }
 }
-
+ 
 function checkIfImageExists(url, callback) {
     const img = new Image();
     img.src = url;
@@ -74,9 +74,35 @@ function displayTeams(teams) {
     });
 }
 
+function displayPlayers(players) {
+    const playersContainer = document.getElementById('players-container');
+    playersContainer.innerHTML = ''; 
+    players.forEach(player => {
+        const selectedCountry = document.querySelector('input[name="country"]:checked').value;
+        if (selectedCountry === 'USA' && player.birth.country === 'USA' ||
+            selectedCountry === 'Canada' && player.birth.country === 'Canada' ||
+            selectedCountry === 'France' && player.birth.country === 'France' ||
+            selectedCountry === 'Italy' && player.birth.country === 'Italy' 
+        ) {
+            const playerCard = document.createElement('div');
+            playerCard.classList.add('player-card');
+            playerCard.innerHTML = `
+                <h2>${player.firstname} ${player.lastname}</h2>
+                <p>Date of Birth: ${player.birth.date}</p>
+                <p>Country: ${player.birth.country}</p>                
+            `;
+            playersContainer.appendChild(playerCard); 
+        }
+        
+    });
+}
+
 (function() {
     document.getElementById('show-team').addEventListener('click', () => {
         fetchData(teamUrl, teamOptions, displayTeams);
+    });
+    document.getElementById('show-players').addEventListener('click', () => {
+        fetchData(playersUrl, playersOptions, displayPlayers);
     });
     
 })();
